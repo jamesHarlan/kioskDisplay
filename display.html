@@ -20,7 +20,7 @@
       $(function () {
         var socket = io();
         socket.on('chat message', function(msg){
-          $('#current-message').html(msg);
+          $('#current-message').text(msg);
         });
       });
     </script>

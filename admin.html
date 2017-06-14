@@ -34,9 +34,14 @@
           $('#current-message').text(msg)
           socket.emit('chat message', msg);
         }
-        $('#msg-form').submit(function(){
+        var clear = function clear() {
+          sendMessage('');
+        }
+        $('#msg-form').submit(function(e){
+          e.preventDefault();
           sendMessage($('#m').val());
           $('#m').val('');
+          setTimeout(clear, 60000);
           return false;
         });
         $('#clear').click(function() {
